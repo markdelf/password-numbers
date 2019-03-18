@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container" style="padding-top: 30px;">
+      <h1>Password numbers</h1>
+      <p>
+        Sometimes I'm asked for the 5th, 7th and 9th character of your password.
+        This tool helps with that.
+      </p>
+      <input
+        type="password"
+        value=""
+        class="password-input form-control"
+        placeholder="Type your password here"
+      />
+    </div>
+    <script type="text/javascript">
+      $(function() {
+        $(".password-input").each(function() {
+          var inputElement = $(this);
+          var displayElement = false;
+          if (!inputElement.data("display-element")) {
+            displayElement = $("<ol>");
+            displayElement.addClass("password-display-numbers");
+            inputElement.data("display-element", displayElement);
+            inputElement.after(displayElement);
+          } else {
+            displayElement = inputElement.data("display-element");
+          }
+          inputElement.on("input", function() {
+            var password = inputElement.val();
+            displayElement.html("");
+
+            for (var i = 0; i < password.length; i++) {
+              var characterElement = $("<li>");
+              characterElement.html(password[i]);
+              displayElement.append(characterElement);
+            }
+          });
+        });
+      });
+    </script>
+    <style>
+      .password-display-numbers {
+        padding-top: 30px;
+        overflow: auto;
+        counter-reset: li-count;
+      }
+
+      .password-display-numbers li {
+        float: left;
+        display: block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid #ccc;
+        text-align: center;
+        margin: 5px;
+        counter-increment: li-count;
+        position: relative;
+        overflow: visible;
+      }
+
+      .password-display-numbers li:before {
+        content: counter(li-count);
+        position: absolute;
+        font-size: 10pt;
+        top: -10px;
+        left: -10px;
+        width: 20px;
+        height: 20px;
+        line-height: 18px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 100%;
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>
