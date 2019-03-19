@@ -5,28 +5,45 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="style.css"
-    />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="container" style="padding-top: 30px;">
       <h1>Password numbers</h1>
       <p>
-        Sometimes I'm asked for the 5th, 7th and 9th character of my password.
-        This tool helps with that.
+        Sometimes I'm asked for the 5th, 7th and 9th character of my password.<br />
+        This tool makes that easier.
       </p>
-      <input
-        type="password"
-        value=""
-        class="password-input form-control"
-        placeholder="Type your password here"
-      />
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="option1" value="hide" autocomplete="off" checked> Click numbers to reveal
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" value="show" autocomplete="off"> Reveal all
+          </label>
+      </div>
+      <div class="password-ui">
+        <input
+          type="password"
+          value=""
+          class="password-input form-control"
+          placeholder="Type your password here"
+        />
+      </div>
+    <ul class="bg-warning">
+      <li>Use at your own risk. Created for personal use.</li>
+      <li>No network requests are done besides the initial loading of jquery and bootstrap.</li>
+      <li>Your passwords never leave this browser window.</li>
+      <li>Source code available on <a href="https://github.com/markdelf/password-numbers" target="_blank">GitHub</a>.</li>
+    </ul>
     </div>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     ></script>
     <script type="text/javascript" src="script.js"></script>
   </body>

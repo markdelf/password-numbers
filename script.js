@@ -17,8 +17,25 @@ $(function() {
         for (var i = 0; i < password.length; i++) {
           var characterElement = $("<li>");
           characterElement.html(password[i]);
+          characterElement.click(function(){
+              console.log("clicked");
+            $(this).toggleClass("reveal");
+          });
           displayElement.append(characterElement);
         }
       });
+    });
+
+    $("input[name='options']").on("change", function(){
+        var passwordUi = $(".password-ui");
+        passwordUi.find(".password-display-numbers li").removeClass("reveal");
+         switch ($(this).val()) {
+             case "show":
+                passwordUi.addClass("reveal");
+             break;
+             case "hide":
+                passwordUi.removeClass("reveal");
+             break;
+         }
     });
   });

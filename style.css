@@ -1,3 +1,7 @@
+.password-input {
+    margin-top: 30px;
+}
+
 .password-display-numbers {
     padding-top: 30px;
     overflow: auto;
@@ -16,6 +20,11 @@
     counter-increment: li-count;
     position: relative;
     overflow: visible;
+    cursor: pointer;
+  }
+
+  .password-display-numbers li:hover {
+    background-color: #eee;
   }
 
   .password-display-numbers li:before {
@@ -31,4 +40,32 @@
     border: 1px solid #000;
     border-radius: 100%;
     text-align: center;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .password-display-numbers li:after {
+    content: ' ';
+    position: absolute;
+    font-size: 10pt;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #888;
+    pointer-events: none;
+  }
+
+  .reveal .password-display-numbers li:after,
+  .password-display-numbers li.reveal:after {
+      display: none;
+  }
+
+  ul.bg-warning {
+     padding: 15px 40px;
+  }
+
+  ul.bg-warning a {
+      color: #555;
+      text-decoration: underline;
   }
